@@ -1,0 +1,48 @@
+﻿@model ContatoModel
+@{
+    ViewData["Title"] = "Criar contato";
+}
+
+<div class="text-center">
+
+    <h1 class="display-4">Cadastro de novo terráqueo</h1>
+<br>
+</div>
+
+<form asp-controller="Contato" asp-action="Create" method="post">
+    <div class="form-group">
+        <label for="nome">Nome Completo</label>
+        <input type="text" asp-for="Nome" class="form-control" placeholder="Digite seu nome">
+        @Html.ValidationMessageFor(x => x.Nome)
+        </div>
+        <br>
+    <div class="form-group">
+        <label for="idade">Idade</label>
+        <input type="text" asp-for="Idade" class="form-control" placeholder="Sua idade na Terra">
+        @Html.ValidationMessageFor(x => x.Idade)
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="email">E-mail</label>
+        <input type="text" asp-for="Email" class="form-control" placeholder="Digite o e-mail">
+        @Html.ValidationMessageFor(x => x.Email)
+    </div>
+    <br>
+    <select class="form-select" aria-label="Default select example" asp-for="Origem">
+        <option selected>Escolha o planeta de origem</option>
+        <option value="Terra">Terra</option>
+        @Html.ValidationMessageFor(x => x.Origem)
+    </select>
+    <br>
+    <select class="form-select" aria-label="Default select example" asp-for="Destino">
+        <option selected>Escolha o planeta de destino</option>
+        <option value="Venus">Venus</option>
+        <option value="Jupiter">Jupiter</option>
+        <option value="Saturno">Saturno</option>
+        <option value="Mercúrio">Mercúrio</option>
+        @Html.ValidationMessageFor(x => x.Destino)
+    </select>
+    <br>
+    <button type="submit" class="btn btn-success btn-block">Adicionar</button>
+    <a class="btn btn-secondary btn-block" asp-controller="Contato" asp-action="Index" role="button">Voltar</a>
+</form> 
